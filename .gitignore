@@ -1,0 +1,8 @@
+.gif-cache/
+gifs/
+Гиря.html
+Гиря.zip
+гиря.xlsx
+__pycache__/
+*.pyc
+.DS_Store
