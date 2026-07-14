@@ -15,3 +15,4 @@
 1. Правь `programs.json` (поле `"gif"`)
 2. Запусти `python3 build.py`
 3. Закоммить и запушь обновлённый `index.html`
+# girya
