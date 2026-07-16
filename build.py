@@ -279,6 +279,8 @@ def build_html(programs: list[dict]) -> str:
 <meta name="apple-mobile-web-app-title" content="Гиря">
 <meta name="mobile-web-app-capable" content="yes">
 <title>Гиря</title>
+<meta name="theme-color" content="#0b6e4f">
+<link rel="manifest" href="manifest.webmanifest">
 {icon_link}
 <style>
 :root {{
@@ -423,12 +425,73 @@ body {{
       <div class="tabs">{"".join(m_labels)}</div>
       {"".join(m_panels)}
     </div>
-    <p class="footer-note">Один файл, без интернета и без Safari. Нажми упражнение — откроется GIF.</p>
+    <p class="footer-note">После первой загрузки работает без интернета. На iPhone: Поделиться → На экран «Домой».</p>
   </main>
 </div>
+<script>
+if ("serviceWorker" in navigator) {{
+  window.addEventListener("load", function () {{
+    navigator.serviceWorker.register("./sw.js").catch(function () {{}});
+  }});
+}}
+</script>
 </body>
 </html>
 """
+
+
+def write_offline_files(cache_version: str) -> None:
+    # иконку для манифеста не обязательна — apple-touch-icon уже в HTML
+    manifest = {
+        "name": "Гиря",
+        "short_name": "Гиря",
+        "description": "Программы с гирей офлайн",
+        "start_url": "./",
+        "scope": "./",
+        "display": "standalone",
+        "background_color": "#e7eee9",
+        "theme_color": "#0b6e4f",
+        "lang": "ru",
+    }
+    (ROOT / "manifest.webmanifest").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+
+    sw = f"""/* Offline cache for Гиря */
+const CACHE = "girya-{cache_version}";
+const ASSETS = ["./", "./index.html", "./manifest.webmanifest"];
+
+self.addEventListener("install", (event) => {{
+  event.waitUntil(
+    caches.open(CACHE).then((cache) => cache.addAll(ASSETS)).then(() => self.skipWaiting())
+  );
+}});
+
+self.addEventListener("activate", (event) => {{
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
+    ).then(() => self.clients.claim())
+  );
+}});
+
+self.addEventListener("fetch", (event) => {{
+  if (event.request.method !== "GET") return;
+  event.respondWith(
+    caches.match(event.request).then((cached) => {{
+      if (cached) return cached;
+      return fetch(event.request).then((response) => {{
+        const copy = response.clone();
+        if (response.ok && new URL(event.request.url).origin === self.location.origin) {{
+          caches.open(CACHE).then((cache) => cache.put(event.request, copy));
+        }}
+        return response;
+      }}).catch(() => caches.match("./index.html"));
+    }})
+  );
+}});
+"""
+    (ROOT / "sw.js").write_text(sw, encoding="utf-8")
 
 
 def load_programs() -> list[dict]:
@@ -469,6 +532,10 @@ def main() -> None:
     OUT_HTML.write_text(html, encoding="utf-8")
     (ROOT / "index.html").write_text(html, encoding="utf-8")
 
+    # версия кэша меняется при каждой сборке — iPhone подтянет обновление
+    cache_version = str(int((ROOT / "index.html").stat().st_mtime))
+    write_offline_files(cache_version)
+
     with zipfile.ZipFile(OUT_ZIP, "w", compression=zipfile.ZIP_DEFLATED) as zf:
         zf.write(OUT_HTML, arcname="Гиря.html")
         zf.write(OUT_XLSX_FEMALE, arcname=OUT_XLSX_FEMALE.name)
@@ -477,6 +544,7 @@ def main() -> None:
     size_mb = OUT_HTML.stat().st_size / 1024 / 1024
     print(f"\nГотово: {OUT_HTML.name} ({size_mb:.1f} МБ)")
     print(f"Архив: {OUT_ZIP.name}")
+    print("Офлайн: sw.js + manifest.webmanifest")
 
 
 if __name__ == "__main__":

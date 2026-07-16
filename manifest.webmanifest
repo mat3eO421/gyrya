@@ -1,0 +1,11 @@
+{
+  "name": "Гиря",
+  "short_name": "Гиря",
+  "description": "Программы с гирей офлайн",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#e7eee9",
+  "theme_color": "#0b6e4f",
+  "lang": "ru"
+}
