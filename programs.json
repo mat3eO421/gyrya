@@ -1,372 +1,669 @@
-[
-  {
-    "id": "posture",
-    "title": "Осанка и восстановление",
-    "subtitle": "Круговая тренировка с акцентом на осанку",
-    "badge": "Программа 1",
-    "sections": [
-      {
-        "title": "РАЗМИНКА (7-10 мин)",
-        "exercises": [
-          {
-            "num": 1,
-            "name": "Суставная гимнастика",
-            "equipment": "Собственный вес",
-            "reps": "3 минуты",
-            "rounds": 1,
-            "rest": "Без отдыха",
-            "goal": "Подготовка суставов и связок",
-            "technique": "Плавные вращения шеей, плечами, тазом, коленями. Без резких движений.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/calves/ankle-circles.gif"
-          },
-          {
-            "num": 2,
-            "name": "Кошка-корова",
-            "equipment": "Коврик",
-            "reps": "10-12 раз",
-            "rounds": 1,
-            "rest": "Без отдыха",
-            "goal": "Мобильность позвоночника, снятие зажимов",
-            "technique": "Стоя на четвереньках. На вдохе мягкий прогиб",
-            "gif": "https://media1.tenor.com/m/-wXXHLdS4nYAAAAC/workout-working-out.gif"
-          },
-          {
-            "num": 3,
-            "name": "Растяжка грудных мышц в проеме",
-            "equipment": "Дверной проем",
-            "reps": "30 сек на сторону",
-            "rounds": 1,
-            "rest": "Без отдыха",
-            "goal": "Растяжка укороченных грудных мышц",
-            "technique": "Предплечья на косяках двери. Мягко подай корпус вперед. Не прогибай поясницу.",
-            "gif": "/data/cursor/gyrya/gifs/Chest_Stretch.gif"
-          },
-          {
-            "num": 4,
-            "name": "Втягивание подбородка (Chin Tucks)",
-            "equipment": "Собственный вес",
-            "reps": "10 раз",
-            "rounds": 1,
-            "rest": "Без отдыха",
-            "goal": "Снятие напряжения с шейного отдела",
-            "technique": "Вытяни макушку вверх, сделай \"двойной подбородок\". Не наклоняй голову вниз.",
-            "gif": "/data/cursor/gyrya/gifs/uprazhnenie-4.gif"
-          }
-        ]
-      },
-      {
-        "title": "ОСНОВНАЯ ЧАСТЬ (Круговая)",
-        "exercises": [
-          {
-            "num": 5,
-            "name": "Кубковые приседания с гирей",
-            "equipment": "Гиря 16 кг",
-            "reps": "10-12 раз",
-            "rounds": "3 круга",
-            "rest": "30-45 сек между упр.",
-            "goal": "Ноги, ягодицы, принудительное выпрямление спины",
-            "technique": "Держи гирю у груди. Ее вес физически заставляет расправить плечи. Спина прямая",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/kettlebell-goblet-squat.gif"
-          },
-          {
-            "num": 6,
-            "name": "Разведение рук в наклоне",
-            "equipment": "Бутылки 1.5 л или резинка",
-            "reps": "15-20 раз",
-            "rounds": "3 круга",
-            "rest": "30-45 сек между упр.",
-            "goal": "Ромбовидные мышцы, задняя дельта (борьба с сутулостью)",
-            "technique": "Наклон вперед, Держи гирю у груди. Ее вес физически заставляет расправить плечи. Спина прямая",
-            "gif": "/data/cursor/gyrya/gifs/7ce21dfc5c43ee81f20137ffcc22647d.gif"
-          },
-          {
-            "num": 7,
-            "name": "Ягодичный мост с паузой",
-            "equipment": "Собственный вес (или гиря на таз)",
-            "reps": "15-20 раз",
-            "rounds": "3 круга",
-            "rest": "30-45 сек между упр.",
-            "goal": "Ягодицы, задняя поверхность бедра",
-            "technique": "Толкай таз вверх, сжимай ягодицы на 2 сек в верхней точке. Не переразгибай поясницу.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/low-glute-bridge-on-floor.gif"
-          },
-          {
-            "num": 8,
-            "name": "Мертвый жук (Dead Bug)",
-            "equipment": "Коврик",
-            "reps": "10-12 раз на сторону",
-            "rounds": "3 круга",
-            "rest": "30-45 сек между упр.",
-            "goal": "Глубокие мышцы кора (безопасно после родов)",
-            "technique": "Поясница ПРИЖАТА к полу. Выдыхай когда выпрямляешь руку и ногу. Ребра \"закрыты\".",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/abs/dead-bug.gif"
-          },
-          {
-            "num": 9,
-            "name": "Отжимания от возвышенности",
-            "equipment": "Край дивана или устойчивый стул",
-            "reps": "8-12 раз",
-            "rounds": "3 круга",
-            "rest": "30-45 сек между упр.",
-            "goal": "Грудь, трицепс, передняя зубчатая мышца (прижимает лопатки)",
-            "technique": "В верхней точке дополнительно оттолкнись от поверхности, слегка округлив верх спины (лопатки врозь).",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/pectorals/incline-push-up.gif"
-          },
-          {
-            "num": 10,
-            "name": "Прогулка фермера",
-            "equipment": "Гиря 16 кг",
-            "reps": "40-60 сек на руку",
-            "rounds": "3 круга",
-            "rest": "30-45 сек между упр.",
-            "goal": "Кор, стабилизаторы позвоночника",
-            "technique": "Встань максимально ровно, представь \"нитку\", тянущую макушку вверх. Не позволяй гире наклонить корпус.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/quads/farmers-walk.gif"
-          }
-        ]
-      },
-      {
-        "title": "ЗАМИНКА (5-7 мин)",
-        "exercises": [
-          {
-            "num": 11,
-            "name": "Растяжка грудных мышц в проеме",
-            "equipment": "Дверной проем",
-            "reps": "30-45 сек на сторону",
-            "rounds": 1,
-            "rest": "Без отдыха",
-            "goal": "Закрепление результата по осанке",
-            "technique": "То же что и в разминке. Глубокий вдох",
-            "gif": "/data/cursor/gyrya/gifs/Chest_Stretch.gif"
-          },
-          {
-            "num": 12,
-            "name": "Поза ребенка",
-            "equipment": "Коврик",
-            "reps": "1-2 минуты",
-            "rounds": 1,
-            "rest": "Без отдыха",
-            "goal": "Расслабление поясницы и широчайших мышц",
-            "technique": "Сидя на пятках наклонись вперед руки вытянуты вперед по полу.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/lats/kneeling-lat-stretch.gif"
-          },
-          {
-            "num": 13,
-            "name": "Диафрагмальное дыхание",
-            "equipment": "Коврик",
-            "reps": "2-3 минуты",
-            "rounds": 1,
-            "rest": "Без отдыха",
-            "goal": "Восстановление тазового дна и успокоение ЦНС",
-            "technique": "Лежа на спине. На вдохе живот надувается, на выдохе мягко подтягивается к позвоночнику.",
-            "gif": "/data/cursor/gyrya/gifs/diaphragmatic_breathing.gif"
-          }
-        ]
-      }
-    ]
+{
+  "_как_править": {
+    "важно": "Это главный файл. Меняй данные здесь, потом запусти: python3 build.py",
+    "структура": "Сверху подсказки (_как_править), ниже массив programs — все тренировки сайта",
+    "gender": "female = вкладка Девушка, male = вкладка Парень",
+    "gif": "Можно указать https://...gif или локальный путь gifs/имя.gif",
+    "поля_программы": {
+      "id": "уникальный id латиницей",
+      "gender": "female или male",
+      "title": "заголовок программы",
+      "subtitle": "описание под заголовком",
+      "badge": "текст на кнопке-вкладке",
+      "sections": "разделы (разминка / основная / заминка)"
+    },
+    "поля_упражнения": {
+      "num": "номер",
+      "name": "название упражнения",
+      "equipment": "инвентарь",
+      "reps": "повторы или время",
+      "rounds": "круги / подходы",
+      "rest": "отдых",
+      "goal": "цель упражнения",
+      "technique": "короткая техника",
+      "gif": "ссылка или файл с демонстрацией"
+    }
   },
-  {
-    "id": "strength",
-    "title": "Сила с гирей 16 кг",
-    "subtitle": "Тренировки А и Б + разминка и заминка",
-    "badge": "Программа 2",
-    "sections": [
-      {
-        "title": "РАЗМИНКА (5-7 мин)",
-        "exercises": [
-          {
-            "num": 1,
-            "name": "Суставная гимнастика",
-            "equipment": "Собственный вес",
-            "reps": "2-3 минуты",
-            "rounds": 1,
-            "rest": "Без отдыха",
-            "goal": "Подготовка суставов и связок",
-            "technique": "Плавные вращения шеей, плечами, тазом, коленями. Без резких рывков.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/calves/ankle-circles.gif"
-          },
-          {
-            "num": 2,
-            "name": "Ягодичный мост",
-            "equipment": "Собственный вес",
-            "reps": "2 х 15 раз",
-            "rounds": 1,
-            "rest": "30 сек",
-            "goal": "Активация ягодиц и задней цепи",
-            "technique": "Толкай таз вверх, сжимай ягодицы в верхней точке. Не прогибай поясницу.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/low-glute-bridge-on-floor.gif"
-          },
-          {
-            "num": 3,
-            "name": "Приседания с собственным весом",
-            "equipment": "Собственный вес",
-            "reps": "2 х 15 раз",
-            "rounds": 1,
-            "rest": "30 сек",
-            "goal": "Разогрев ног и мобилизация тазобедренных суставов",
-            "technique": "Спина прямая, вес на пятках, колени не заваливаются внутрь.",
-            "gif": "/data/cursor/gyrya/gifs/c1ad3036d298e090bdae7a768222e451.gif"
-          }
-        ]
-      },
-      {
-        "title": "ТРЕНИРОВКА А (Круговая)",
-        "exercises": [
-          {
-            "num": 4,
-            "name": "Махи гирей двумя руками",
-            "equipment": "Гиря 16 кг",
-            "reps": "15-20 раз",
-            "rounds": "3-4 круга",
-            "rest": "90-120 сек",
-            "goal": "Ягодицы, бицепс бедра, жиросжигание",
-            "technique": "Работай тазом (толчок), а не руками. В верхней точке гиря на уровне груди, спина прямая.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/kettlebell-swing.gif"
-          },
-          {
-            "num": 5,
-            "name": "Кубковые приседания с гирей",
-            "equipment": "Гиря 16 кг",
-            "reps": "12-15 раз",
-            "rounds": "3-4 круга",
-            "rest": "90-120 сек",
-            "goal": "Квадрицепс, ягодицы, кор",
-            "technique": "Держи гирю у груди. Сделай паузу 2 сек в нижней точке для усложнения. Локти смотрят вниз.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/kettlebell-goblet-squat.gif"
-          },
-          {
-            "num": 6,
-            "name": "Тяга гири к поясу одной рукой",
-            "equipment": "Гиря 16 кг / скамья/стул",
-            "reps": "10-12 раз на руку",
-            "rounds": "3-4 круга",
-            "rest": "90-120 сек",
-            "goal": "Широчайшие мышцы,ромбовидные, бицепс",
-            "technique": "Упор рукой и коленом о скамью. Спина параллельна полу. Тяни локоть к поясу сводя лопатку.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/upper-back/kettlebell-one-arm-row.gif"
-          },
-          {
-            "num": 7,
-            "name": "Отжимания от пола",
-            "equipment": "Собственный вес",
-            "reps": "Максимум (15-20)",
-            "rounds": "3-4 круга",
-            "rest": "90-120 сек",
-            "goal": "Грудные мышцы, трицепс, передняя дельта",
-            "technique": "Тело — прямая линия. Локти под углом 45 градусов к корпусу. Живот напряжен.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/pectorals/push-up.gif"
-          },
-          {
-            "num": 8,
-            "name": "Планка с перетаскиванием гири",
-            "equipment": "Гиря 16 кг /коврик",
-            "reps": "40-60 сек",
-            "rounds": "3-4 круга",
-            "rest": "90-120 сек",
-            "goal": "Поперечная мышца живота, косые мышцы (анти-ротация)",
-            "technique": "Таз не виляет. Перетаскивай гирю под собой, минимизируя поворот корпуса.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/upper-back/kettlebell-alternating-renegade-row.gif"
-          }
-        ]
-      },
-      {
-        "title": "ТРЕНИРОВКА Б (Круговая)",
-        "exercises": [
-          {
-            "num": 9,
-            "name": "Румынская тяга на одной ноге",
-            "equipment": "Гиря 16 кг",
-            "reps": "10-12 раз на ногу",
-            "rounds": "3-4 круга",
-            "rest": "90-120 сек",
-            "goal": "Бицепс бедра, ягодицы, стабилизаторы",
-            "technique": "Медленное опускание (3 сек вниз). Держи баланс. Спина прямая, взгляд в пол.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/dumbbell-single-leg-deadlift.gif"
-          },
-          {
-            "num": 10,
-            "name": "Обратные выпады с гирей",
-            "equipment": "Гиря 16 кг",
-            "reps": "10-12 раз на ногу",
-            "rounds": "3-4 круга",
-            "rest": "90-120 сек",
-            "goal": "Квадрицепс, ягодицы, кор",
-            "technique": "Гиря в одной руке или у груди. Шаг назад, колено задней ноги почти касается пола.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/kettlebell-lunge-pass-through.gif"
-          },
-          {
-            "num": 11,
-            "name": "Швунг жимовой одной рукой (Push Press)",
-            "equipment": "Гиря 16 кг",
-            "reps": "8-10 раз на руку",
-            "rounds": "3-4 круга",
-            "rest": "90-120 сек",
-            "goal": "Плечи (дельты), трицепс, ноги",
-            "technique": "Слегка подсядь и за счет ног вытолкни гирю вверх. Внизу гиря жестко стоит на предплечье/плече.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/delts/kettlebell-one-arm-push-press.gif"
-          },
-          {
-            "num": 12,
-            "name": "Тяга гири к подбородку (протяжка)",
-            "equipment": "Гиря 16 кг",
-            "reps": "12-15 раз",
-            "rounds": "3-4 круга",
-            "rest": "90-120 сек",
-            "goal": "Средняя дельта, трапеция",
-            "technique": "Локти тяни вверх и в стороны. Гиря скользит близко к телу. Не сутулься в верхней точке.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/traps/kettlebell-sumo-high-pull.gif"
-          },
-          {
-            "num": 13,
-            "name": "Русские скручивания с гирей",
-            "equipment": "Гиря 16 кг / коврик",
-            "reps": "15-20 раз всего",
-            "rounds": "3-4 круга",
-            "rest": "90-120 сек",
-            "goal": "Косые мышцы живота, прямая мышца живота",
-            "technique": "Ноги на весу (или пятки на полу для облегчения). Поворачивай корпус и плечи, а не просто махай руками.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/abs/weighted-russian-twist.gif"
-          }
-        ]
-      },
-      {
-        "title": "ЗАМИНКА (5 мин)",
-        "exercises": [
-          {
-            "num": 14,
-            "name": "Растяжка квадрицепсов и бицепса бедра",
-            "equipment": "Собственный вес",
-            "reps": "По 30-45 сек на сторону",
-            "rounds": 1,
-            "rest": "Без отдыха",
-            "goal": "Восстановление эластичности мышц ног",
-            "technique": "Стоя, пятка к ягодице (квадрицепс). Сидя, наклон к прямым ногам (бицепс бедра).",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/hamstrings/hamstring-stretch.gif"
-          },
-          {
-            "num": 15,
-            "name": "Растяжка грудных мышц и широчайших",
-            "equipment": "Стена/дверной проем",
-            "reps": "По 30 сек на сторону",
-            "rounds": 1,
-            "rest": "Без отдыха",
-            "goal": "Снятие напряжения с верхней части тела",
-            "technique": "Рука упирается в косяк, мягкий поворот корпуса от руки.",
-            "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/lats/back-pec-stretch.gif"
-          },
-          {
-            "num": 16,
-            "name": "Диафрагмальное дыхание",
-            "equipment": "Коврик",
-            "reps": "2-3 минуты",
-            "rounds": 1,
-            "rest": "Без отдыха",
-            "goal": "Снижение пульса, восстановление ЦНС",
-            "technique": "Лежа на спине. Глубокий вдох в живот, на выдохе живот мягко подтягивается к позвоночнику.",
-            "gif": "/data/cursor/gyrya/gifs/diaphragmatic_breathing.gif"
-          }
-        ]
-      }
-    ]
-  }
-]
+  "programs": [
+    {
+      "_комментарий": "ДЕВУШКА · тренировка А (первый день)",
+      "id": "female-a",
+      "gender": "female",
+      "title": "Тренировка А",
+      "subtitle": "Девушка · разминка + основная + заминка · 12 упражнений",
+      "badge": "Вариант А",
+      "sections": [
+        {
+          "_комментарий": "Разминка перед основной частью",
+          "title": "РАЗМИНКА (5-7 мин)",
+          "exercises": [
+            {
+              "num": 1,
+              "name": "Суставная гимнастика",
+              "equipment": "Собственный вес",
+              "reps": "2-3 минуты",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Подготовка суставов и связок",
+              "technique": "Плавные вращения шеей, плечами, тазом, коленями. Без резких движений.",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/calves/ankle-circles.gif"
+            },
+            {
+              "num": 2,
+              "name": "Кошка-корова",
+              "equipment": "Коврик",
+              "reps": "10-12 раз",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Мобильность позвоночника",
+              "technique": "Стоя на четвереньках. На вдохе мягкий прогиб, на выдохе округление спины.",
+              "gif": "https://media1.tenor.com/m/-wXXHLdS4nYAAAAC/workout-working-out.gif"
+            },
+            {
+              "num": 3,
+              "name": "Втягивание подбородка (Chin Tucks)",
+              "equipment": "Собственный вес",
+              "reps": "10 раз",
+              "rounds": "1",
+              "rest": "",
+              "goal": "Снятие напряжения с шейного отдела",
+              "technique": "Вытяни макушку вверх, сделай двойной подбородок. Не наклоняй голову вниз.",
+              "gif": "gifs/uprazhnenie-4.gif"
+            }
+          ]
+        },
+        {
+          "_комментарий": "Основная круговая часть",
+          "title": "ОСНОВНАЯ ЧАСТЬ (Круговая)",
+          "exercises": [
+            {
+              "num": 4,
+              "name": "Кубковый присед",
+              "equipment": "Гиря / собственный вес",
+              "reps": "8-10",
+              "rounds": "3",
+              "rest": "60 сек",
+              "goal": "Ягодицы, ноги",
+              "technique": "Спина ровная, колени по носкам",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/kettlebell-goblet-squat.gif"
+            },
+            {
+              "num": 5,
+              "name": "Тяга гири двумя руками",
+              "equipment": "Гиря / собственный вес",
+              "reps": "12",
+              "rounds": "3",
+              "rest": "60 сек",
+              "goal": "Осанка",
+              "technique": "Сводить лопатки",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/upper-back/barbell-bent-over-row.gif"
+            },
+            {
+              "num": 6,
+              "name": "Ягодичный мост",
+              "equipment": "Гиря / собственный вес",
+              "reps": "15",
+              "rounds": "3",
+              "rest": "45 сек",
+              "goal": "Ягодицы",
+              "technique": "Пауза сверху",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/low-glute-bridge-on-floor.gif"
+            },
+            {
+              "num": 7,
+              "name": "Разведение рук",
+              "equipment": "Гиря / собственный вес",
+              "reps": "15",
+              "rounds": "3",
+              "rest": "45 сек",
+              "goal": "Осанка",
+              "technique": "Не поднимать плечи",
+              "gif": "gifs/7ce21dfc5c43ee81f20137ffcc22647d.gif"
+            },
+            {
+              "num": 8,
+              "name": "Dead Bug",
+              "equipment": "Гиря / собственный вес",
+              "reps": "10/стор.",
+              "rounds": "3",
+              "rest": "45 сек",
+              "goal": "Кор",
+              "technique": "Поясница прижата",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/abs/dead-bug.gif"
+            },
+            {
+              "num": 9,
+              "name": "Переноска гири",
+              "equipment": "Гиря / собственный вес",
+              "reps": "30-40 сек",
+              "rounds": "3",
+              "rest": "60 сек",
+              "goal": "Кор",
+              "technique": "Корпус вертикально",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/quads/farmers-walk.gif"
+            }
+          ]
+        },
+        {
+          "_комментарий": "Заминка после основной части",
+          "title": "ЗАМИНКА (5 мин)",
+          "exercises": [
+            {
+              "num": 10,
+              "name": "Растяжка грудных мышц в проеме",
+              "equipment": "Дверной проем",
+              "reps": "30-45 сек на сторону",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Снятие напряжения с груди и осанки",
+              "technique": "Предплечья на косяках, мягко подай корпус вперед. Не прогибай поясницу.",
+              "gif": "gifs/Chest_Stretch.gif"
+            },
+            {
+              "num": 11,
+              "name": "Поза ребенка",
+              "equipment": "Коврик",
+              "reps": "1-2 минуты",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Расслабление поясницы и широчайших",
+              "technique": "Сидя на пятках наклонись вперед, руки вытянуты вперед по полу.",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/lats/kneeling-lat-stretch.gif"
+            },
+            {
+              "num": 12,
+              "name": "Диафрагмальное дыхание",
+              "equipment": "Коврик",
+              "reps": "2-3 минуты",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Восстановление и успокоение",
+              "technique": "Лежа на спине. На вдохе живот надувается, на выдохе мягко подтягивается.",
+              "gif": "gifs/diaphragmatic_breathing.gif"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_комментарий": "ДЕВУШКА · тренировка Б (второй день)",
+      "id": "female-b",
+      "gender": "female",
+      "title": "Тренировка Б",
+      "subtitle": "Девушка · разминка + основная + заминка · 12 упражнений",
+      "badge": "Вариант Б",
+      "sections": [
+        {
+          "_комментарий": "Разминка перед основной частью",
+          "title": "РАЗМИНКА (5-7 мин)",
+          "exercises": [
+            {
+              "num": 1,
+              "name": "Суставная гимнастика",
+              "equipment": "Собственный вес",
+              "reps": "2-3 минуты",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Подготовка суставов и связок",
+              "technique": "Плавные вращения шеей, плечами, тазом, коленями. Без резких движений.",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/calves/ankle-circles.gif"
+            },
+            {
+              "num": 2,
+              "name": "Кошка-корова",
+              "equipment": "Коврик",
+              "reps": "10-12 раз",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Мобильность позвоночника",
+              "technique": "Стоя на четвереньках. На вдохе мягкий прогиб, на выдохе округление спины.",
+              "gif": "https://media1.tenor.com/m/-wXXHLdS4nYAAAAC/workout-working-out.gif"
+            },
+            {
+              "num": 3,
+              "name": "Втягивание подбородка (Chin Tucks)",
+              "equipment": "Собственный вес",
+              "reps": "10 раз",
+              "rounds": "1",
+              "rest": "",
+              "goal": "Снятие напряжения с шейного отдела",
+              "technique": "Вытяни макушку вверх, сделай двойной подбородок. Не наклоняй голову вниз.",
+              "gif": "gifs/uprazhnenie-4.gif"
+            }
+          ]
+        },
+        {
+          "_комментарий": "Основная круговая часть",
+          "title": "ОСНОВНАЯ ЧАСТЬ (Круговая)",
+          "exercises": [
+            {
+              "num": 4,
+              "name": "Румынская тяга",
+              "equipment": "Гиря / собственный вес",
+              "reps": "10-12",
+              "rounds": "3",
+              "rest": "60 сек",
+              "goal": "Ягодицы",
+              "technique": "Таз назад",
+              "gif": "gifs/orig.gif"
+            },
+            {
+              "num": 5,
+              "name": "Обратные выпады",
+              "equipment": "Гиря / собственный вес",
+              "reps": "10-12 на ногу",
+              "rounds": "4",
+              "rest": "60 сек",
+              "goal": "Ноги, ягодицы",
+              "technique": "Шаг назад, колено не заваливать, корпус вертикально",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/kettlebell-lunge-pass-through.gif"
+            },
+            {
+              "num": 6,
+              "name": "Тяга гири двумя руками",
+              "equipment": "Гиря / собственный вес",
+              "reps": "12",
+              "rounds": "3",
+              "rest": "60 сек",
+              "goal": "Осанка",
+              "technique": "Сводить лопатки",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/upper-back/barbell-bent-over-row.gif"
+            },
+            {
+              "num": 7,
+              "name": "Отжимания от опоры",
+              "equipment": "Гиря / собственный вес",
+              "reps": "8-12",
+              "rounds": "3",
+              "rest": "60 сек",
+              "goal": "Грудь",
+              "technique": "Корпус прямой",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/pectorals/incline-push-up.gif"
+            },
+            {
+              "num": 8,
+              "name": "Планка",
+              "equipment": "Гиря / собственный вес",
+              "reps": "20-30 сек",
+              "rounds": "3",
+              "rest": "45 сек",
+              "goal": "Кор",
+              "technique": "Не провисать",
+              "gif": "gifs/bf8e573e8f13983b74efbf033fc5f0c4.gif"
+            },
+            {
+              "num": 9,
+              "name": "Ягодичный мост",
+              "equipment": "Гиря / собственный вес",
+              "reps": "15",
+              "rounds": "3",
+              "rest": "45 сек",
+              "goal": "Ягодицы",
+              "technique": "Пауза сверху",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/low-glute-bridge-on-floor.gif"
+            }
+          ]
+        },
+        {
+          "_комментарий": "Заминка после основной части",
+          "title": "ЗАМИНКА (5 мин)",
+          "exercises": [
+            {
+              "num": 10,
+              "name": "Растяжка грудных мышц в проеме",
+              "equipment": "Дверной проем",
+              "reps": "30-45 сек на сторону",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Снятие напряжения с груди и осанки",
+              "technique": "Предплечья на косяках, мягко подай корпус вперед. Не прогибай поясницу.",
+              "gif": "gifs/Chest_Stretch.gif"
+            },
+            {
+              "num": 11,
+              "name": "Поза ребенка",
+              "equipment": "Коврик",
+              "reps": "1-2 минуты",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Расслабление поясницы и широчайших",
+              "technique": "Сидя на пятках наклонись вперед, руки вытянуты вперед по полу.",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/lats/kneeling-lat-stretch.gif"
+            },
+            {
+              "num": 12,
+              "name": "Диафрагмальное дыхание",
+              "equipment": "Коврик",
+              "reps": "2-3 минуты",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Восстановление и успокоение",
+              "technique": "Лежа на спине. На вдохе живот надувается, на выдохе мягко подтягивается.",
+              "gif": "gifs/diaphragmatic_breathing.gif"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_комментарий": "ПАРЕНЬ · тренировка А (первый день)",
+      "id": "male-a",
+      "gender": "male",
+      "title": "Тренировка А",
+      "subtitle": "Парень · разминка + основная + заминка · 12 упражнений",
+      "badge": "Вариант А",
+      "sections": [
+        {
+          "_комментарий": "Разминка перед основной частью",
+          "title": "РАЗМИНКА (5-7 мин)",
+          "exercises": [
+            {
+              "num": 1,
+              "name": "Суставная гимнастика",
+              "equipment": "Собственный вес",
+              "reps": "2-3 минуты",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Подготовка суставов и связок",
+              "technique": "Плавные вращения шеей, плечами, тазом, коленями. Без резких рывков.",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/calves/ankle-circles.gif"
+            },
+            {
+              "num": 2,
+              "name": "Ягодичный мост",
+              "equipment": "Собственный вес",
+              "reps": "2 х 15 раз",
+              "rounds": "1",
+              "rest": "30 сек",
+              "goal": "Активация ягодиц и задней цепи",
+              "technique": "Толкай таз вверх, сжимай ягодицы в верхней точке. Не прогибай поясницу.",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/low-glute-bridge-on-floor.gif"
+            },
+            {
+              "num": 3,
+              "name": "Приседания с собственным весом",
+              "equipment": "Собственный вес",
+              "reps": "2 х 12-15 раз",
+              "rounds": "1",
+              "rest": "30 сек",
+              "goal": "Разогрев ног и мобилизация тазобедренных",
+              "technique": "Спина прямая, вес на пятках, колени не заваливаются внутрь.",
+              "gif": "gifs/c1ad3036d298e090bdae7a768222e451.gif"
+            }
+          ]
+        },
+        {
+          "_комментарий": "Основная круговая часть",
+          "title": "ОСНОВНАЯ ЧАСТЬ (Круговая)",
+          "exercises": [
+            {
+              "num": 4,
+              "name": "Махи гирей",
+              "equipment": "Гиря / собственный вес",
+              "reps": "15-20",
+              "rounds": "4",
+              "rest": "60 сек",
+              "goal": "Мощность, ягодицы",
+              "technique": "Импульс тазом, не руками",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/kettlebell-swing.gif"
+            },
+            {
+              "num": 5,
+              "name": "Румынская тяга",
+              "equipment": "Гиря / собственный вес",
+              "reps": "12-15",
+              "rounds": "4",
+              "rest": "60 сек",
+              "goal": "Задняя цепь",
+              "technique": "Таз назад, спина ровная",
+              "gif": "gifs/orig.gif"
+            },
+            {
+              "num": 6,
+              "name": "Тяга гири одной рукой",
+              "equipment": "Гиря / собственный вес",
+              "reps": "10-12/рука",
+              "rounds": "4",
+              "rest": "60 сек",
+              "goal": "Спина",
+              "technique": "Лопатка к позвоночнику",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/upper-back/kettlebell-one-arm-row.gif"
+            },
+            {
+              "num": 7,
+              "name": "Отжимания",
+              "equipment": "Гиря / собственный вес",
+              "reps": "12-20",
+              "rounds": "4",
+              "rest": "60 сек",
+              "goal": "Грудь",
+              "technique": "Корпус прямой",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/pectorals/push-up.gif"
+            },
+            {
+              "num": 8,
+              "name": "Планка с перетаскиванием гири",
+              "equipment": "Гиря / собственный вес",
+              "reps": "40-60 сек",
+              "rounds": "4",
+              "rest": "45 сек",
+              "goal": "Кор",
+              "technique": "Минимум раскачивания",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/upper-back/kettlebell-alternating-renegade-row.gif"
+            },
+            {
+              "num": 9,
+              "name": "Прогулка фермера",
+              "equipment": "Гиря / собственный вес",
+              "reps": "40-60 сек",
+              "rounds": "4",
+              "rest": "60 сек",
+              "goal": "Хват, корпус",
+              "technique": "Плечи опущены, корпус ровный",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/quads/farmers-walk.gif"
+            }
+          ]
+        },
+        {
+          "_комментарий": "Заминка после основной части",
+          "title": "ЗАМИНКА (5 мин)",
+          "exercises": [
+            {
+              "num": 10,
+              "name": "Растяжка квадрицепсов и бицепса бедра",
+              "equipment": "Собственный вес",
+              "reps": "По 30-45 сек на сторону",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Восстановление эластичности мышц ног",
+              "technique": "Стоя, пятка к ягодице (квадрицепс). Сидя, наклон к прямым ногам (бицепс бедра).",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/hamstrings/hamstring-stretch.gif"
+            },
+            {
+              "num": 11,
+              "name": "Растяжка грудных мышц и широчайших",
+              "equipment": "Стена / дверной проем",
+              "reps": "По 30 сек на сторону",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Снятие напряжения с верхней части тела",
+              "technique": "Рука упирается в косяк, мягкий поворот корпуса от руки.",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/lats/back-pec-stretch.gif"
+            },
+            {
+              "num": 12,
+              "name": "Диафрагмальное дыхание",
+              "equipment": "Коврик",
+              "reps": "2-3 минуты",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Снижение пульса, восстановление",
+              "technique": "Лежа на спине. Глубокий вдох в живот, на выдохе живот мягко подтягивается.",
+              "gif": "gifs/diaphragmatic_breathing.gif"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_комментарий": "ПАРЕНЬ · тренировка Б (второй день)",
+      "id": "male-b",
+      "gender": "male",
+      "title": "Тренировка Б",
+      "subtitle": "Парень · разминка + основная + заминка · 12 упражнений",
+      "badge": "Вариант Б",
+      "sections": [
+        {
+          "_комментарий": "Разминка перед основной частью",
+          "title": "РАЗМИНКА (5-7 мин)",
+          "exercises": [
+            {
+              "num": 1,
+              "name": "Суставная гимнастика",
+              "equipment": "Собственный вес",
+              "reps": "2-3 минуты",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Подготовка суставов и связок",
+              "technique": "Плавные вращения шеей, плечами, тазом, коленями. Без резких рывков.",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/calves/ankle-circles.gif"
+            },
+            {
+              "num": 2,
+              "name": "Ягодичный мост",
+              "equipment": "Собственный вес",
+              "reps": "2 х 15 раз",
+              "rounds": "1",
+              "rest": "30 сек",
+              "goal": "Активация ягодиц и задней цепи",
+              "technique": "Толкай таз вверх, сжимай ягодицы в верхней точке. Не прогибай поясницу.",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/low-glute-bridge-on-floor.gif"
+            },
+            {
+              "num": 3,
+              "name": "Приседания с собственным весом",
+              "equipment": "Собственный вес",
+              "reps": "2 х 12-15 раз",
+              "rounds": "1",
+              "rest": "30 сек",
+              "goal": "Разогрев ног и мобилизация тазобедренных",
+              "technique": "Спина прямая, вес на пятках, колени не заваливаются внутрь.",
+              "gif": "gifs/c1ad3036d298e090bdae7a768222e451.gif"
+            }
+          ]
+        },
+        {
+          "_комментарий": "Основная круговая часть",
+          "title": "ОСНОВНАЯ ЧАСТЬ (Круговая)",
+          "exercises": [
+            {
+              "num": 4,
+              "name": "Кубковый присед",
+              "equipment": "Гиря / собственный вес",
+              "reps": "10-12",
+              "rounds": "4",
+              "rest": "60 сек",
+              "goal": "Ноги, ягодицы",
+              "technique": "Не уходить в глубокий присед при боли",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/kettlebell-goblet-squat.gif"
+            },
+            {
+              "num": 5,
+              "name": "Румынская тяга",
+              "equipment": "Гиря / собственный вес",
+              "reps": "12-15",
+              "rounds": "4",
+              "rest": "60 сек",
+              "goal": "Ягодицы",
+              "technique": "Спина нейтральная",
+              "gif": "gifs/orig.gif"
+            },
+            {
+              "num": 6,
+              "name": "Жим гири одной рукой",
+              "equipment": "Гиря / собственный вес",
+              "reps": "8-10/рука",
+              "rounds": "4",
+              "rest": "60 сек",
+              "goal": "Плечи",
+              "technique": "Не прогибаться",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/delts/kettlebell-one-arm-push-press.gif"
+            },
+            {
+              "num": 7,
+              "name": "Тяга к подбородку",
+              "equipment": "Гиря / собственный вес",
+              "reps": "10-12",
+              "rounds": "4",
+              "rest": "60 сек",
+              "goal": "Плечи",
+              "technique": "Локти не выше плеч",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/traps/kettlebell-sumo-high-pull.gif"
+            },
+            {
+              "num": 8,
+              "name": "Русские скручивания с гирей",
+              "equipment": "Гиря",
+              "reps": "15-20",
+              "rounds": "4",
+              "rest": "90 сек",
+              "goal": "Кор",
+              "technique": "Тело в линию",
+              "gif": "gifs/Twist_s_girej.gif"
+            },
+            {
+              "num": 9,
+              "name": "Ягодичный мост",
+              "equipment": "Гиря / собственный вес",
+              "reps": "15",
+              "rounds": "4",
+              "rest": "45 сек",
+              "goal": "Ягодицы",
+              "technique": "Пауза сверху",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/glutes/low-glute-bridge-on-floor.gif"
+            }
+          ]
+        },
+        {
+          "_комментарий": "Заминка после основной части",
+          "title": "ЗАМИНКА (5 мин)",
+          "exercises": [
+            {
+              "num": 10,
+              "name": "Растяжка квадрицепсов и бицепса бедра",
+              "equipment": "Собственный вес",
+              "reps": "По 30-45 сек на сторону",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Восстановление эластичности мышц ног",
+              "technique": "Стоя, пятка к ягодице (квадрицепс). Сидя, наклон к прямым ногам (бицепс бедра).",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/hamstrings/hamstring-stretch.gif"
+            },
+            {
+              "num": 11,
+              "name": "Растяжка грудных мышц и широчайших",
+              "equipment": "Стена / дверной проем",
+              "reps": "По 30 сек на сторону",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Снятие напряжения с верхней части тела",
+              "technique": "Рука упирается в косяк, мягкий поворот корпуса от руки.",
+              "gif": "https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/lats/back-pec-stretch.gif"
+            },
+            {
+              "num": 12,
+              "name": "Диафрагмальное дыхание",
+              "equipment": "Коврик",
+              "reps": "2-3 минуты",
+              "rounds": "1",
+              "rest": "Без отдыха",
+              "goal": "Снижение пульса, восстановление",
+              "technique": "Лежа на спине. Глубокий вдох в живот, на выдохе живот мягко подтягивается.",
+              "gif": "gifs/diaphragmatic_breathing.gif"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

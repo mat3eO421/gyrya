@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
-"""Собрать Гиря.html из programs.json.
+"""Собрать HTML из programs.json.
 
-Как менять GIF:
-1. Открой programs.json
-2. В поле "gif" у нужного упражнения укажи:
-   - ссылку из интернета: https://.../exercise.gif
-   - или свой файл: gifs/мой-gif.gif
-3. Запусти: python3 build.py
+Источник данных — только programs.json (смотри блок _как_править внутри файла).
+После правок: python3 build.py
 """
 
 from __future__ import annotations
@@ -22,6 +18,8 @@ ROOT = Path(__file__).resolve().parent
 PROGRAMS_FILE = ROOT / "programs.json"
 OUT_HTML = ROOT / "Гиря.html"
 OUT_ZIP = ROOT / "Гиря.zip"
+OUT_XLSX_FEMALE = ROOT / "Две_тренировки_для_девушки.xlsx"
+OUT_XLSX_MALE = ROOT / "Две_тренировки_для_парня.xlsx"
 GIF_CACHE = ROOT / ".gif-cache"
 
 
@@ -29,9 +27,11 @@ def esc(s: object) -> str:
     return H.escape(str(s))
 
 
-def load_gif_bytes(gif_value: str) -> bytes:
+def load_gif_bytes(gif_value: str) -> bytes | None:
+    if not gif_value:
+        return None
+
     if gif_value.startswith("data:image"):
-        # уже встроенный base64 — оставить как есть, не перекачивать
         header, b64 = gif_value.split(",", 1)
         return base64.b64decode(b64)
 
@@ -49,11 +49,16 @@ def load_gif_bytes(gif_value: str) -> bytes:
         if not cache_path.exists():
             print(f"  скачиваю {gif_value}")
             req = urllib.request.Request(gif_value, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req, timeout=60) as resp:
-                cache_path.write_bytes(resp.read())
+            try:
+                with urllib.request.urlopen(req, timeout=60) as resp:
+                    cache_path.write_bytes(resp.read())
+            except Exception as error:
+                print(f"  ! GIF временно недоступен: {error}")
+                return None
         return cache_path.read_bytes()
 
-    raise FileNotFoundError(f"GIF не найден: {gif_value}")
+    print(f"  ! GIF не найден: {gif_value}")
+    return None
 
 
 def to_data_uri(data: bytes) -> str:
@@ -68,7 +73,86 @@ def load_icon_data_uri() -> str:
     return f"data:image/png;base64,{b64}"
 
 
-def build_html(programs: list) -> str:
+def build_xlsx(programs: list[dict], out_path: Path, title: str) -> None:
+    try:
+        from openpyxl import Workbook
+        from openpyxl.styles import Alignment, Font, PatternFill
+        from openpyxl.utils import get_column_letter
+    except Exception as e:  # pragma: no cover
+        raise RuntimeError(
+            "Не могу собрать XLSX: нужен пакет openpyxl. Установи: pip install -r requirements.txt"
+        ) from e
+
+    wb = Workbook()
+    wb.remove(wb.active)
+
+    header = [
+        "№",
+        "Упражнение",
+        "GIF",
+        "Повторы/время",
+        "Круги/подходы",
+        "Отдых",
+        "Цель",
+        "Ключевая техника",
+    ]
+
+    header_font = Font(bold=True, color="FFFFFF")
+    accent = "9A4D76" if "девуш" in title.lower() else "176B87"
+    header_fill = PatternFill("solid", fgColor=accent)
+    wrap = Alignment(wrap_text=True, vertical="top")
+
+    for p in programs:
+        sheet_name = p.get("title") or p.get("id", "Программа")
+        sheet_name = str(sheet_name)[:31]
+        ws = wb.create_sheet(title=sheet_name)
+
+        ws["A1"] = f'{title} · {p.get("title", "")}'
+        ws["A1"].font = Font(bold=True, size=16, color=accent)
+        ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=len(header))
+        ws.row_dimensions[1].height = 28
+
+        ws.append(header)
+        for cell in ws[2]:
+            cell.font = header_font
+            cell.fill = header_fill
+            cell.alignment = Alignment(vertical="center")
+
+        row = 3
+        for s in p.get("sections", []):
+            for ex in s.get("exercises", []):
+                gif = ex.get("gif") or ""
+                ws.cell(row=row, column=1, value=ex.get("num"))
+                ws.cell(row=row, column=2, value=ex.get("name"))
+                ws.cell(row=row, column=3, value=gif)
+                if isinstance(gif, str) and gif.startswith(("http://", "https://")):
+                    ws.cell(row=row, column=3).hyperlink = gif
+                    ws.cell(row=row, column=3).style = "Hyperlink"
+                ws.cell(row=row, column=4, value=ex.get("reps"))
+                ws.cell(row=row, column=5, value=ex.get("rounds"))
+                ws.cell(row=row, column=6, value=ex.get("rest"))
+                ws.cell(row=row, column=7, value=ex.get("goal"))
+                ws.cell(row=row, column=8, value=ex.get("technique"))
+
+                for col in range(1, len(header) + 1):
+                    ws.cell(row=row, column=col).alignment = wrap
+                if row % 2:
+                    for col in range(1, len(header) + 1):
+                        ws.cell(row=row, column=col).fill = PatternFill("solid", fgColor="F3F6F5")
+                ws.row_dimensions[row].height = 42
+                row += 1
+
+        ws.freeze_panes = "A3"
+        ws.auto_filter.ref = f"A2:{get_column_letter(len(header))}{max(2, row - 1)}"
+
+        widths = {1: 5, 2: 28, 3: 34, 4: 18, 5: 16, 6: 13, 7: 24, 8: 42}
+        for c, w in widths.items():
+            ws.column_dimensions[get_column_letter(c)].width = w
+
+    wb.save(out_path)
+
+
+def build_html(programs: list[dict]) -> str:
     icon_uri = load_icon_data_uri()
     icon_link = (
         f'<link rel="apple-touch-icon" href="{icon_uri}">\n'
@@ -77,36 +161,46 @@ def build_html(programs: list) -> str:
         else ""
     )
 
-    tabs_inputs = []
-    tabs_labels = []
-    panels = []
+    def build_prog_group(group_programs: list[dict], group_id: str) -> tuple[list[str], list[str], list[str], list[str]]:
+        tabs_inputs: list[str] = []
+        tabs_labels: list[str] = []
+        panels: list[str] = []
+        show_rules: list[str] = []
 
-    for i, p in enumerate(programs):
-        checked = " checked" if i == 0 else ""
-        tabs_inputs.append(
-            f'<input class="tab-input" type="radio" name="prog" id="tab-{p["id"]}"{checked}>'
-        )
-        tabs_labels.append(
-            f'<label class="tab" for="tab-{p["id"]}">{esc(p["badge"])}: {esc(p["title"].split()[0])}</label>'
-        )
+        for i, p in enumerate(group_programs):
+            checked = " checked" if i == 0 else ""
+            tab_id = f'{group_id}-tab-{p["id"]}'
+            panel_id = f'{group_id}-panel-{p["id"]}'
+            tabs_inputs.append(
+                f'<input class="tab-input" type="radio" name="{group_id}-prog" id="{tab_id}"{checked}>'
+            )
+            tabs_labels.append(
+                f'<label class="tab" for="{tab_id}">{esc(p["badge"])}: {esc(p["title"].split()[0])}</label>'
+            )
 
-        sections_html = []
-        for s in p["sections"]:
-            items = []
-            for ex in s["exercises"]:
-                chips = []
-                if ex.get("reps"):
-                    chips.append(f'повторы: {ex["reps"]}')
-                if ex.get("rounds"):
-                    chips.append(f'подходы: {ex["rounds"]}')
-                if ex.get("rest"):
-                    chips.append(f'отдых: {ex["rest"]}')
-                if ex.get("equipment"):
-                    chips.append(ex["equipment"])
-                chips_html = "".join(f'<span class="chip">{esc(c)}</span>' for c in chips)
+            sections_html = []
+            for s in p["sections"]:
+                items = []
+                for ex in s["exercises"]:
+                    chips = []
+                    if ex.get("reps"):
+                        chips.append(f'повторы: {ex["reps"]}')
+                    if ex.get("rounds"):
+                        chips.append(f'подходы: {ex["rounds"]}')
+                    if ex.get("rest"):
+                        chips.append(f'отдых: {ex["rest"]}')
+                    if ex.get("equipment"):
+                        chips.append(ex["equipment"])
+                    chips_html = "".join(f'<span class="chip">{esc(c)}</span>' for c in chips)
+                    gif_html = (
+                        f'<div class="gif-frame"><img src="{esc(ex["gif"])}" '
+                        f'alt="{esc(ex["name"])}" loading="lazy"></div>'
+                        if ex.get("gif")
+                        else '<div class="gif-frame gif-missing">Демонстрация скоро появится</div>'
+                    )
 
-                items.append(
-                    f"""
+                    items.append(
+                        f"""
 <details class="ex">
   <summary>
     <span class="ex-num">{esc(ex["num"])}</span>
@@ -117,39 +211,63 @@ def build_html(programs: list) -> str:
     <span class="ex-hint">GIF ▼</span>
   </summary>
   <div class="ex-body">
-    <div class="gif-frame"><img src="{ex["gif"]}" alt="{esc(ex["name"])}" loading="lazy"></div>
+    {gif_html}
     <div class="chips">{chips_html}</div>
     <p class="tech"><strong>Техника:</strong> {esc(ex.get("technique") or "")}</p>
     <p class="goal"><strong>Цель:</strong> {esc(ex.get("goal") or "")}</p>
   </div>
 </details>"""
-                )
+                    )
 
-            sections_html.append(
-                f"""
+                sections_html.append(
+                    f"""
 <section class="section">
   <h3 class="section-title">{esc(s["title"])}</h3>
   <div class="list">{"".join(items)}</div>
 </section>"""
-            )
+                )
 
-        panels.append(
-            f"""
-<div class="panel" id="panel-{p["id"]}">
+            panels.append(
+                f"""
+<div class="panel" id="{panel_id}">
   <div class="program-head">
     <h2>{esc(p["title"])}</h2>
     <p>{esc(p["subtitle"])}</p>
   </div>
   {"".join(sections_html)}
 </div>"""
-        )
+            )
 
-    show_rules = []
-    for p in programs:
-        show_rules.append(
-            f'#tab-{p["id"]}:checked ~ .tabs label[for="tab-{p["id"]}"] {{ background: var(--ink); color: #f7fbf8; }}'
-        )
-        show_rules.append(f'#tab-{p["id"]}:checked ~ #panel-{p["id"]} {{ display: block; }}')
+            show_rules.append(
+                f'#{tab_id}:checked ~ .tabs label[for="{tab_id}"] {{ background: var(--ink); color: #f7fbf8; }}'
+            )
+            show_rules.append(f'#{tab_id}:checked ~ #{panel_id} {{ display: block; }}')
+
+        return tabs_inputs, tabs_labels, panels, show_rules
+
+    female = [p for p in programs if (p.get("gender") or "unisex") in ("female", "unisex")]
+    male = [p for p in programs if (p.get("gender") or "unisex") in ("male", "unisex")]
+
+    g_inputs = [
+        '<input class="tab-input" type="radio" name="gender" id="gender-f" checked>',
+        '<input class="tab-input" type="radio" name="gender" id="gender-m">',
+    ]
+    g_tabs = [
+        '<label class="tab tab-gender" for="gender-f">Девушка</label>',
+        '<label class="tab tab-gender" for="gender-m">Парень</label>',
+    ]
+
+    f_inputs, f_labels, f_panels, f_rules = build_prog_group(female, "f")
+    m_inputs, m_labels, m_panels, m_rules = build_prog_group(male, "m")
+
+    show_rules = [
+        '#gender-f:checked ~ .gender-tabs label[for="gender-f"] { background: var(--ink); color:#f7fbf8; }',
+        '#gender-m:checked ~ .gender-tabs label[for="gender-m"] { background: var(--ink); color:#f7fbf8; }',
+        '#gender-f:checked ~ .gender-panel-f { display:block; }',
+        '#gender-m:checked ~ .gender-panel-m { display:block; }',
+    ]
+    show_rules.extend(f_rules)
+    show_rules.extend(m_rules)
 
     return f"""<!DOCTYPE html>
 <html lang="ru">
@@ -198,6 +316,11 @@ body {{
 }}
 .programs {{ margin-top:.5rem; }}
 .tab-input {{ position:absolute; opacity:0; pointer-events:none; }}
+.gender-tabs {{
+  display:grid; grid-template-columns:1fr 1fr; gap:.45rem; margin:0 0 1rem;
+  padding:.4rem; border:1px solid var(--line); border-radius:22px;
+  background:rgba(255,255,255,.62); box-shadow:0 10px 30px rgba(20,32,27,.08);
+}}
 .tabs {{
   display:flex; gap:.4rem; flex-wrap:wrap; margin:0 0 1rem;
   padding:.35rem; border:1px solid var(--line); border-radius:999px;
@@ -208,8 +331,19 @@ body {{
   color:var(--muted); font-weight:700; font-size:.92rem;
   -webkit-tap-highlight-color:transparent;
 }}
+.tab-gender {{ font-size:.95rem; }}
+.gender-tabs .tab {{ text-align:center; padding:.85rem 1rem; }}
+.gender-tabs label[for="gender-f"]::before {{ content:"♀"; margin-right:.4rem; }}
+.gender-tabs label[for="gender-m"]::before {{ content:"♂"; margin-right:.4rem; }}
+.gender-panel {{
+  display:none; padding:1rem; border:1px solid var(--line); border-radius:24px;
+  background:linear-gradient(145deg,var(--group-soft),rgba(255,255,255,.42));
+}}
+.gender-panel-f {{ --accent:#9a4d76; --group-soft:rgba(212,150,181,.18); }}
+.gender-panel-m {{ --accent:#176b87; --group-soft:rgba(89,169,196,.16); }}
 .panel {{ display:none; }}
 {chr(10).join(show_rules)}
+.group-label {{ margin:0 0 .8rem; font-size:1.1rem; font-weight:800; color:var(--accent); }}
 .program-head h2 {{ margin:0 0 .3rem; font-size:clamp(1.25rem, 4vw, 1.8rem); }}
 .program-head p {{ margin:0 0 1rem; color:var(--muted); }}
 .section {{ margin-bottom:1.4rem; }}
@@ -242,6 +376,7 @@ body {{
 .gif-frame {{
   background:#101714; display:grid; place-items:center; min-height:220px;
 }}
+.gif-missing {{ color:#aebbb5; font-size:.9rem; }}
 .gif-frame img {{
   width:100%; max-height:340px; object-fit:contain; display:block;
 }}
@@ -256,6 +391,10 @@ body {{
 .tech strong, .goal strong {{ color:var(--ink); }}
 .goal {{ padding-top:0; }}
 .footer-note {{ margin-top:1.5rem; color:var(--muted); font-size:.85rem; }}
+@media (max-width:560px) {{
+  .gender-panel {{ padding:.75rem; border-radius:20px; }}
+  .ex summary {{ padding:.8rem; gap:.6rem; }}
+}}
 </style>
 </head>
 <body>
@@ -268,9 +407,22 @@ body {{
   </header>
 
   <main class="programs" id="programs">
-    {"".join(tabs_inputs)}
-    <div class="tabs">{"".join(tabs_labels)}</div>
-    {"".join(panels)}
+    {"".join(g_inputs)}
+    <div class="gender-tabs">{"".join(g_tabs)}</div>
+
+    <div class="gender-panel gender-panel-f">
+      <p class="group-label">Программы для девушки</p>
+      {"".join(f_inputs)}
+      <div class="tabs">{"".join(f_labels)}</div>
+      {"".join(f_panels)}
+    </div>
+
+    <div class="gender-panel gender-panel-m">
+      <p class="group-label">Программы для парня</p>
+      {"".join(m_inputs)}
+      <div class="tabs">{"".join(m_labels)}</div>
+      {"".join(m_panels)}
+    </div>
     <p class="footer-note">Один файл, без интернета и без Safari. Нажми упражнение — откроется GIF.</p>
   </main>
 </div>
@@ -279,18 +431,39 @@ body {{
 """
 
 
-def main() -> None:
-    programs = json.loads(PROGRAMS_FILE.read_text(encoding="utf-8"))
+def load_programs() -> list[dict]:
+    raw = json.loads(PROGRAMS_FILE.read_text(encoding="utf-8"))
+    if isinstance(raw, dict):
+        programs = raw.get("programs")
+        if not isinstance(programs, list):
+            raise ValueError('В programs.json нужен массив "programs"')
+        return programs
+    if isinstance(raw, list):
+        return raw
+    raise ValueError("programs.json должен быть объектом {programs:[...]} или массивом")
 
-    print("Вшиваю GIF...")
+
+def main() -> None:
+    programs = load_programs()
+
+    female = [p for p in programs if p.get("gender") == "female"]
+    male = [p for p in programs if p.get("gender") == "male"]
+
+    print("Собираю XLSX из programs.json...")
+    build_xlsx(female, OUT_XLSX_FEMALE, "Программа тренировок (девушка)")
+    build_xlsx(male, OUT_XLSX_MALE, "Программа тренировок (парень)")
+    print(f"  • {OUT_XLSX_FEMALE.name}")
+    print(f"  • {OUT_XLSX_MALE.name}")
+
+    print("Вшиваю GIF и собираю HTML...")
     for p in programs:
         for s in p["sections"]:
             for ex in s["exercises"]:
                 name = ex["name"]
-                src = ex["gif"]
+                src = ex.get("gif") or ""
                 print(f"  • {name}")
                 data = load_gif_bytes(src)
-                ex["gif"] = to_data_uri(data)
+                ex["gif"] = to_data_uri(data) if data else ""
 
     html = build_html(programs)
     OUT_HTML.write_text(html, encoding="utf-8")
@@ -298,6 +471,8 @@ def main() -> None:
 
     with zipfile.ZipFile(OUT_ZIP, "w", compression=zipfile.ZIP_DEFLATED) as zf:
         zf.write(OUT_HTML, arcname="Гиря.html")
+        zf.write(OUT_XLSX_FEMALE, arcname=OUT_XLSX_FEMALE.name)
+        zf.write(OUT_XLSX_MALE, arcname=OUT_XLSX_MALE.name)
 
     size_mb = OUT_HTML.stat().st_size / 1024 / 1024
     print(f"\nГотово: {OUT_HTML.name} ({size_mb:.1f} МБ)")
